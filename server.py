@@ -12,11 +12,11 @@ def showStatus():
     if garageTaken == True:
         # show picture, whatever..
         #return "Garage is taken..."
-    	return send_from_directory(app.config['CARD_ART_FOLDER'], 'taken.jpg')
+    	return send_from_directory(app.config['CARD_ART_FOLDER'], 'taken.jpg', add_etags=False)
     else:
         #show other picture..
         #return "Garage is not taken.."
-	return send_from_directory(app.config['CARD_ART_FOLDER'], 'empty.jpg')
+	return send_from_directory(app.config['CARD_ART_FOLDER'], 'empty.jpg', add_etags=False)
 
 
 @app.route('/data')
