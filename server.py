@@ -12,11 +12,11 @@ def showStatus():
     if garageTaken == True:
         # show picture, whatever..
         #return "Garage is taken..."
-    	return send_from_directory(app.config['CARD_ART_FOLDER'], 'taken.jpg', add_etags=False)
+    	return send_from_directory(app.config['IMAGE_FOLDER'], 'taken.jpg', add_etags=False)
     else:
         #show other picture..
         #return "Garage is not taken.."
-	return send_from_directory(app.config['CARD_ART_FOLDER'], 'empty.jpg', add_etags=False)
+	return send_from_directory(app.config['IMAGE_FOLDER'], 'empty.jpg', add_etags=False)
 
 
 @app.route('/data')
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     app.debug = args.debug
 
     app_dir = os.path.dirname(os.path.abspath(__file__))
-    app.config['CARD_ART_FOLDER'] = os.path.join(app_dir + '/img')
+    app.config['IMAGE_FOLDER'] = os.path.join(app_dir + '/img')
 
     app.run(host = args.host, port = args.port)
 
